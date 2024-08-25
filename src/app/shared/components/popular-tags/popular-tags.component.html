@@ -1,0 +1,13 @@
+<div class="d-flex flex-column gap-2">
+  @if (widgetTitle !== '') {
+  <h5 class="text-light">{{widgetTitle | uppercase}}</h5>
+  }
+  <ul class="popular-tags nav d-inline-flex flex-wrap gap-2">
+    @for (itemTag of itemsPopularTags; track $index) {
+    <li class="nav-item rounded-pill px-3 py-1" [ngClass]="{ 'bg-secondary link-light footer-link': isFooter }">
+      <a class="item-link text-decoration-none" [ngClass]="{ 'link-light': isFooter }" [routerLink]="itemTag.link">{{
+        itemTag.label }}</a>
+    </li>
+    }
+  </ul>
+</div>

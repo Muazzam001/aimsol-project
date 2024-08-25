@@ -1,0 +1,19 @@
+@use "../../../../assets/styles/mixin" as varImport;
+
+.quick-links {
+    &.nav {
+        columns: 2;
+
+        .nav-item {
+            .item-link {
+
+                &,
+                &.footer-link {
+                    @include varImport.pseudoEvent {
+                        color: var(--bs-default) !important;
+                    }
+                }
+            }
+        }
+    }
+}

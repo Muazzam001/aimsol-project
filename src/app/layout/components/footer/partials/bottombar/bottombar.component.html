@@ -1,0 +1,20 @@
+<div class="row row-cols-1 row-cols-lg-3 align-items-center align-self-center">
+  <div class="text-light col-12 col-lg-4 mb-3 mb-lg-0 text-center text-lg-start">
+    <div class="d-inline-flex flex-wrap gap-1">
+      <span>&copy; {{currentYear}} All Rights Reserved.</span>
+      <span>Developed by <a href="http://www.google" target="_blank" rel="noopener noreferrer"
+          class="text-decoration-none text-default fw-semibold">Dex & Dev</a></span>
+    </div>
+  </div>
+
+  <app-social-profiles class="col-12 col-md-6 col-lg-4 mb-3 mb-md-0" [isFooter]="true"></app-social-profiles>
+
+  <div
+    class="payment-list col-12 col-md-6 d-inline-flex gap-2 align-items-center justify-content-center justify-content-md-end">
+    @for (payment of dataPayments; track $index) {
+    <span class="payment-item d-inline-block">
+      <img src="./assets/images/{{payment.image}}" alt="{{payment.title}}" class="img-fluid" loading="lazy">
+    </span>
+    }
+  </div>
+</div>

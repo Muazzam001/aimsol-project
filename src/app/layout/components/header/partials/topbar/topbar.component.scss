@@ -1,0 +1,22 @@
+:host {
+
+    ::ng-deep {
+        .topbar {
+            .nav {
+                .nav-item {
+                    border-right: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+
+                    &:first-child,
+                    &:first-of-type {
+                        border-left: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+                    }
+
+                }
+
+                .nav-link {
+                    padding-inline: var(--bs-nav-link-padding-y);
+                }
+            }
+        }
+    }
+}

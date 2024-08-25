@@ -1,0 +1,15 @@
+@use "../../../../assets/styles/mixin" as varImport;
+
+.popular-tags {
+    &.nav {
+        .nav-item {
+            &,
+            &.footer-link {
+                @include varImport.pseudoEvent {
+                    background-color: var(--bs-default) !important;
+                    color: var(--bs-white) !important;
+                }
+            }
+        }
+    }
+}

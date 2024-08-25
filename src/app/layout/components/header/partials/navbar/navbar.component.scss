@@ -1,0 +1,62 @@
+@use "../../../../../../assets/styles/mixin" as varImport;
+
+.main-nav {
+    &.navbar {
+        padding-block: var(--bs-navbar-padding-x);
+
+        .navbar-brand {
+            max-width: 175px;
+
+            @media screen and (width < 576px) {
+                max-width: 150px;
+            }
+        }
+
+        .navbar-toggler {
+            width: 55px;
+            height: 40px;
+
+            @include varImport.pseudoEvent {
+                box-shadow: unset;
+                border-color: var(--bs-default);
+            }
+
+            &[aria-expanded="true"] {
+                .navbar-toggler-icon {
+                    background: unset;
+                    font-family: "Font Awesome 6 Pro";
+                    font-weight: 300;
+                    font-size: 2rem;
+                    width: 1em;
+                    height: 1em;
+                    margin-inline-start: -2px;
+
+                    &:before {
+                        content: '\f00d';
+                    }
+                }
+            }
+        }
+
+        .navbar-nav {
+            .nav-link {
+                padding-inline-start: var(--bs-navbar-toggler-padding-x);
+                padding-inline-end: var(--bs-navbar-toggler-padding-x);
+                border-radius: var(--bs-border-radius-2xl);
+
+                &.active {
+                    background-color: var(--bs-default);
+                    color: var(--bs-light);
+
+                    @include varImport.pseudoEvent {
+                        color: var(--bs-dark);
+                    }
+                }
+
+                @include varImport.pseudoEvent {
+                    color: var(--bs-default);
+                }
+            }
+        }
+    }
+}

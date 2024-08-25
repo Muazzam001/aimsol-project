@@ -1,0 +1,19 @@
+<div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+  <div class="d-flex flex-column gap-2 mb-3 mb-sm-4 mb-xl-0">
+    <app-logo [isFooter]="true"></app-logo>
+
+    <app-contact-widget [isFooter]="true"></app-contact-widget>
+  </div>
+
+  <div class="mb-3 mb-sm-4 mb-xl-0">
+    <app-quick-links [widgetTitle]="'Quick Links'"></app-quick-links>
+  </div>
+
+  <div class="mb-3 mb-sm-4 mb-xl-0">
+    <app-blog-posts [isFooter]="true" [widgetTitle]="'Featured Posts'"></app-blog-posts>
+  </div>
+
+  <div class="mb-3 mb-sm-4 mb-xl-0">
+    <app-popular-tags [widgetTitle]="'Popular Tags'"></app-popular-tags>
+  </div>
+</div>

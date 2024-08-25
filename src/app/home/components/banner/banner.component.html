@@ -1,0 +1,46 @@
+<swiper-container init="false" #swiperContainer class="slider gradient-directional" navigation="true">
+  <swiper-slide *ngFor="let item of slides" class="slider-wrap" style="--bs-bg-opacity: 0.5">
+    <div class="container h-100">
+      <div class="row g-0 h-100">
+        <div class="col-md-1"></div>
+
+        <div class="col-md-5 py-5 h-100 d-flex flex-column justify-content-center">
+          <h5 class="slider-subtitle fs-6">{{ item.subtitle }}</h5>
+          <h2 class="slider-title fs-1">{{ item.title }}</h2>
+          <div>
+            <p class="slider-content">{{ item.text }}</p>
+            @if (item.buttons) {
+            <ul class="list-unstyled">
+              @for (item of item.listing; track $index) {
+              <li>{{ item }}</li>
+              }
+            </ul>
+            }
+          </div>
+          <div class="button-wrap d-inline-flex flex-wrap gap-2 gap-lg-3 align-items-center">
+            @if (item.contact) {
+            <span>{{ item.contact }}</span>
+            }
+
+            @if (item.buttons) {
+            <span class="d-inline-flex flex-wrap gap-2 gap-lg-3 align-items-center">
+              @for (btn of item.buttons; track $index) {
+              <a class="btn btn-{{ btn.type }}" [routerLink]="['' + btn.link]">{{
+                btn.text}}</a>
+              }
+            </span>
+            }
+          </div>
+        </div>
+
+        <div class="col-md-5 py-5 h-100 d-flex align-items-center justify-content-center">
+          <div class="slider-img h-100 d-flex align-items-center justify-content-center">
+            <img class="img-fluid" src="./assets/images/{{ item.image }}" alt="{{ item.title }}" />
+          </div>
+        </div>
+
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+  </swiper-slide>
+</swiper-container>

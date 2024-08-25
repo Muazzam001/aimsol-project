@@ -1,0 +1,25 @@
+@if (widgetTitle !== '') {
+<div class="d-flex justify-content-center justify-content-md-start ">
+    <h4 class="d-flex flex-column">
+        <span class="fw-bold">{{widgetTitle | uppercase}}</span>
+
+        <span class="heading-separator"></span>
+    </h4>
+</div>
+}
+
+<ul class="product-display d-flex flex-column gap-2">
+    @for (itemFeatured of itemsProducts | slice:0:3; track $index) {
+    <li class="p-0 ">
+        <a class="item-link text-decoration-none d-inline-flex gap-2" [routerLink]="itemFeatured.link">
+            <span class="w-25">
+                <img class="card-img img-fluid" src="{{ itemFeatured.image }}" alt="{{ itemFeatured.title }}" />
+            </span>
+
+            <span class="w-75 d-flex flex-column gap-1">
+                <h6>{{ itemFeatured.title }}</h6>
+            </span>
+        </a>
+    </li>
+    }
+</ul>

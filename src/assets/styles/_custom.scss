@@ -1,0 +1,54 @@
+@use "./mixin" as varImport;
+
+a {
+    color: var(--bs-body-color);
+    cursor: pointer;
+}
+
+.nav {
+    .nav-item {
+        cursor: pointer;
+    }
+}
+
+.gradient-directional {
+    @include varImport.gradient-directional(#0ce0ba, #b8cd06, 40deg)
+}
+
+.btn-default {
+    --bs-btn-color: var(--bs-light);
+    --bs-btn-hover-color: var(--bs-dark);
+    --bs-btn-active-color: var(--bs-dark);
+}
+
+.btn-slate {
+    --bs-btn-color: var(--bs-light);
+    --bs-btn-hover-color: var(--bs-dark);
+    --bs-btn-active-color: var(--bs-dark);
+}
+
+.heading-separator {
+    margin: 1rem auto 0;
+    height: 3px;
+    width: calc(100% - 30px);
+    position: relative;
+    background-color: var(--bs-default);
+
+    &::before,
+    &::after {
+        position: absolute;
+        content: '';
+        width: 8px;
+        height: 100%;
+        background-color: var(--bs-default);
+    }
+
+    &::before {
+        left: -12px;
+    }
+
+    &::after {
+        right: -12px;
+    }
+
+}

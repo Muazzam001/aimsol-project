@@ -1,0 +1,21 @@
+<div class="btnCurrency btn-group position-relative">
+  <button
+    class="btn btn-link btn-sm dropdown-toggle text-decoration-none link-secondary small"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    <span class="text-uppercase">{{ selectedCurrency }}</span>
+  </button>
+
+  <ul class="dropdown-menu">
+    @for (itemCurrency of this.currencyList; track itemCurrency.code3) {
+    <span
+      class="dropdown-item small"
+      (click)="selectCurrency(itemCurrency.code3)"
+      title="{{ itemCurrency.name }}"
+      >{{ itemCurrency.code3 }}</span
+    >
+    }
+  </ul>
+</div>

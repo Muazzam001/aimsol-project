@@ -1,0 +1,28 @@
+@use "../../../../assets/styles/mixin" as varImport;
+
+.btnCurrency {
+    &.btn-group {
+        .dropdown-toggle {
+            span {
+                min-width: 3.75rem;
+            }
+        }
+
+        .dropdown-menu {
+            min-width: 55px;
+            max-height: 300px;
+            overflow-x: hidden;
+            overflow-y: auto;
+
+            .dropdown-item {
+                padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-y);
+                cursor: pointer;
+
+                @include varImport.pseudoEvent {
+                    background-color: var(--bs-default);
+                    color: var(--bs-white);
+                }
+            }
+        }
+    }
+}

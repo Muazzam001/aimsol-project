@@ -1,0 +1,61 @@
+@if (isFooter) {
+<div class="d-flex flex-column gap-2">
+    @if (widgetTitle !== '') {
+    <h5 class="text-light">{{widgetTitle | uppercase}}</h5>
+    }
+    <ul class="quick-links nav d-inline-flex flex-wrap gap-2">
+        @for (itemFeatured of itemsFeaturedPosts | slice:0:3; track $index) {
+        <li class="nav-item p-0 " [ngClass]="{ 'link-light footer-link': isFooter }">
+            <a class="item-link text-decoration-none d-inline-flex gap-2" [ngClass]="{ 'link-light': isFooter }"
+                [routerLink]="itemFeatured.link">
+                <span class="w-25">
+                    <img class="card-img img-fluid" src="{{ itemFeatured.image }}" alt="{{ itemFeatured.title }}" />
+                </span>
+
+                <span class="w-75 d-flex flex-column gap-1">
+                    <span class="small text-secondary">{{itemFeatured.date | date:'mediumDate'}}</span>
+                    <h6>{{ itemFeatured.title }}</h6>
+                </span>
+            </a>
+        </li>
+        }
+    </ul>
+</div>
+}
+@else {
+<section class="latest-posts text-center py-5">
+    <div class="container">
+        @if (widgetTitle !== '') {
+        <div class="d-inline-block mx-auto">
+            @if (widgetSubTitle !== '') {<h6 class="text-secondary mb-0">{{widgetSubTitle | uppercase}}</h6>}
+            <h2 class="d-flex flex-column">
+                <span class="fw-bold">{{widgetTitle | uppercase}}</span>
+
+                <span class="heading-separator"></span>
+            </h2>
+        </div>
+        }
+
+        <div class="row mt-4 mt-lg-5">
+            @for (post of itemsBlogPosts; track $index) {
+            <div class="col-lg-4">
+                <div class="card mb-4 border-0">
+                    <img class="card-img img-fluid" src="{{ post.image }}" alt="{{ post.title }}" />
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center gap-3 gap-xxl-4">
+                        <h5 class="card-title mb-0">{{ post.title }}</h5>
+                        <p class="card-text mb-0">{{ post.text }}</p>
+                        <div class="d-flex align-items-center justify-content-center gap-2 gap-lg-3">
+                            <span>{{ post.date | date:'mediumDate'}}</span>
+                            <a [routerLink]="post.author.link" class="text-default text-decoration-none">{{
+                                post.author.name }}</a>
+                        </div>
+                        <a [routerLink]="post.button.link" class="btn btn-{{ post.button.type }}">{{
+                            post.button.text }}</a>
+                    </div>
+                </div>
+            </div>
+            } @empty { No posts available. }
+        </div>
+    </div>
+</section>
+}

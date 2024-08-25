@@ -1,0 +1,19 @@
+<ul class="nav" [ngClass]="{ 'd-flex flex-column gap-1': isFooter }">
+  @for (itemContact of contactItems; track $index) {
+  <li [ngClass]="{ 'py-md-2 px-md-3 px-2': isHeader }" class="nav-item fs-6 d-inline-flex align-items-center">
+    @if (isFooter) {
+    <span class="far fa-{{ itemContact.icon }} text-default me-2"></span>
+    }
+    @if (isHeader) {
+    <span class="far fa-{{ itemContact.icon }} text-default d-block d-lg-none"></span>
+    }
+    <span class="fs-6"
+      [ngClass]="{ 'fw-medium text-uppercase text-dark d-none d-lg-block': isHeader, 'text-light': isFooter }">{{
+      itemContact.label }}:</span>
+    <a href="{{
+        itemContact.type + ':' + itemContact.content | removeBetweenSpaces
+      }}" target="_blank" [ngClass]="{ 'link-secondary': isHeader, 'px-md-1 link-light': isFooter, }"
+      class="nav-link ">{{ itemContact.content }}</a>
+  </li>
+  }
+</ul>

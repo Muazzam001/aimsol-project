@@ -1,0 +1,11 @@
+<ul class="social nav d-flex gap-2 justify-content-center ">
+  @for (itemProfile of socialProfiles; track $index) {
+  <li class="nav-item ">
+    <a target="_blank" [title]="itemProfile.title"
+      [ngClass]="{ 'link-secondary': isHeader, 'bg-secondary link-light footer-link': isFooter }"
+      class="item-link d-inline-flex align-items-center justify-content-center text-decoration-none p-1 rounded-circle">
+      <i class="fab fa-{{ itemProfile.brand }}"></i>
+    </a>
+  </li>
+  }
+</ul>

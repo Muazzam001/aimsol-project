@@ -1,0 +1,41 @@
+.slider {
+    // height: calc(100vh - 150px);
+    height: 600px;
+
+    @media (width >=1600px) {
+        height: 700px;
+    }
+
+    .slider-wrap {
+
+        .slider-img {
+            max-width: 60%;
+        }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        font-family: "Font Awesome 6 Pro";
+        font-weight: 300;
+        font-size: 2rem;
+        width: 1em;
+        height: 1em;
+        margin-inline-start: -2px;
+
+        svg {
+            display: none;
+        }
+    }
+
+    .swiper-button-next {
+        &:before {
+            content: '\f00d';
+        }
+    }
+
+    .swiper-button-prev {
+        &:before {
+            content: '\f00d';
+        }
+    }
+}

@@ -1,0 +1,32 @@
+<div class="modal fade {{this.modalEnabled ? 'show' : ''}}" role="dialog" aria-modal="true"
+    id="modal{{modalId | titlecase }}" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @if (enableHeader){
+            <div class="modal-header">
+                <h5 class="modal-title">{{ modalTitle }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="this.close(false)"></button>
+            </div>
+            }
+
+            <div class="modal-body">
+                <ng-content></ng-content>
+            </div>
+
+            @if (enableFooter){
+            <div class="modal-footer">
+                @if (enableFooter && (modalBtnDismiss !== undefined && modalBtnDismiss !== '')) {
+                <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">
+                    {{ modalBtnDismiss }}</button>
+                }
+
+                @if (enableFooter && (modalBtnConfirm !== undefined && modalBtnConfirm !== '')) {
+                <button type="button" class="btn btn-primary" (click)="confirm()">
+                    {{ modalBtnConfirm }}</button>
+                }
+            </div>
+            }
+        </div>
+    </div>
+</div>

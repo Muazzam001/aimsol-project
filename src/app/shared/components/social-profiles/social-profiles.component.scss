@@ -1,0 +1,24 @@
+@use "../../../../assets/styles/mixin" as varImport;
+
+.social {
+    &.nav {
+        .nav-item {
+
+            .item-link {
+                width: 40px;
+                height: 40px;
+
+                .fab {
+                    font-size: 1.125em;
+                }
+
+                &, &.footer-link {
+                    @include varImport.pseudoEvent {
+                        background-color: var(--bs-default) !important;
+                        color: var(--bs-white) !important;
+                    }    
+                }
+            }
+        }
+    }
+}

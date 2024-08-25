@@ -1,0 +1,19 @@
+<div class="d-flex flex-column gap-2">
+    @if (widgetTitle !== '') {
+    <h5 class="text-light">{{widgetTitle | uppercase}}</h5>
+    }
+    <ul class="quick-links nav d-block">
+        @for (itemQuickLink of itemsQuickLinks; track $index) {
+        <li class="nav-item d-inline-block py-1 w-100" [ngClass]="{ 'link-light footer-link': isFooter }">
+            <a class="item-link text-decoration-none" [ngClass]="{ 'link-light': isFooter }"
+                [routerLink]="itemQuickLink.link">{{ itemQuickLink.label }}</a>
+        </li>
+        }
+        @for (itemQuickLink of itemsQuickLinks; track $index) {
+        <li class="nav-item d-inline-block py-1 w-100" [ngClass]="{ 'link-light footer-link': isFooter }">
+            <a class="item-link text-decoration-none" [ngClass]="{ 'link-light': isFooter }"
+                [routerLink]="itemQuickLink.link">{{ itemQuickLink.label }}</a>
+        </li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,41 @@
+<nav class="topbar border-bottom">
+  <div class="container d-flex flex-wrap">
+    <div class="me-auto">
+      <app-contact-widget [addressEnabled]="false" [isHeader]="true"></app-contact-widget>
+    </div>
+
+    <div class="d-none d-lg-block">
+      <ul class="nav align-items-center">
+        <li class="nav-item border-end py-md-2 px-md-3 d-inline-flex align-items-center h-100">
+          <button type="button" class="nav-link link-dark px-2" (click)="openModal()">
+            <span class="fw-medium">Login</span> or
+            <span class="fw-medium">Signup</span>
+          </button>
+        </li>
+
+        <li class="nav-item border-end py-md-2 px-md-3 d-inline-flex align-items-center h-100">
+          <app-currency-dropdown></app-currency-dropdown>
+        </li>
+
+        <li class="nav-item border-end py-md-2 px-md-3 d-inline-flex align-items-center h-100">
+          <span class="nav-link">
+            <span class="far fa-heart link-secondary"></span>
+          </span>
+        </li>
+
+        <li class="nav-item border-end py-md-2 px-md-3 d-inline-flex align-items-center h-100">
+          <span class="nav-link">
+            <span class="far fa-sync link-secondary"></span>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+@if(this.enableModal) {
+<app-modal #modal [modalEnabled]="this.enableModal" [modalId]="'registration'" [modalTitle]="'Registration'"
+  [enableHeader]="true">
+</app-modal>
+}
